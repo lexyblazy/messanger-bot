@@ -1,9 +1,9 @@
-const FIRSTNAME = "FIRSTNAME";
-const BIRTHDAY = "BIRTHDAY";
-const DAYS_TO_NEXT_BIRTHDAY = "DAYS_TO_NEXT_BIRTHDAY";
+const FIRSTNAME = "name";
+const BIRTHDAY = "birthday";
+const KNOW_DAYS = "know_days_left";
 exports.FIRSTNAME = FIRSTNAME;
 exports.BIRTHDAY = BIRTHDAY;
-exports.DAYS_TO_NEXT_BIRTHDAY = DAYS_TO_NEXT_BIRTHDAY;
+exports.KNOW_DAYS = KNOW_DAYS;
 
 exports.QUESTIONS = [
   {
@@ -21,7 +21,7 @@ exports.QUESTIONS = [
   },
   {
     type: "input",
-    name: DAYS_TO_NEXT_BIRTHDAY,
+    name: KNOW_DAYS,
     message: "Do you want to know how many days till your next birthday",
     filter: function(val = "") {
       const regex = /[^A-Za-z]/g;

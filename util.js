@@ -1,4 +1,4 @@
-const { FIRSTNAME, BIRTHDAY, DAYS_TO_NEXT_BIRTHDAY } = require("./constants");
+const { FIRSTNAME, BIRTHDAY, DAYS_TO_NEXT_BIRTHDAY,KNOW_DAYS } = require("./constants");
 
 const getNextBirthday = (day, month) => {
   const today = new Date();
@@ -28,7 +28,7 @@ exports.evaluateAnswers = answers => {
         console.log(
           `There ${singular ? "is" : "are"} ${daysToNextBirthday} ${
             singular ? "day" : "days"
-          } left till your next birthday`
+          } left until your next birthday`
         );
       }
       return;
