@@ -17,11 +17,12 @@ exports.evaluateAnswers = answers => {
   const dob = new Date(answers[BIRTHDAY]);
   const daysToNextBirthday = getNextBirthday(dob.getDate(), dob.getMonth());
   const singular = daysToNextBirthday <= 1;
-  saveMessage(answers);
+  let answer = "";
   switch (knowNextBirthday) {
     case "yes":
     case "yeah":
     case "yup": {
+      answer = "yes";
       if (daysToNextBirthday === 0) {
         // eslint-disable-next-line
         console.log(`Happy Birthday ${answers[FIRSTNAME]}`);
@@ -33,11 +34,13 @@ exports.evaluateAnswers = answers => {
           } left until your next birthday`
         );
       }
-      return;
+      break;
     }
     default:
+      answer = "no";
       // eslint-disable-next-line
       console.log("Goodbye 👋👋👋👋");
-      return;
+      break;
   }
+  saveMessage({ ...answers, [KNOW_DAYS]: answer });
 };

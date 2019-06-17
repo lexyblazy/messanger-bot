@@ -30,5 +30,6 @@ exports.saveMessage = async message => {
   } catch (error) {
     //eslint-disable-next-line
     console.log(error);
+    process.exit();
   }
 };

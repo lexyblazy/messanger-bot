@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 5000;
 const { QUESTIONS, DBURL } = require("./constants");
 const { evaluateAnswers } = require("./util");
 const { getMessage, getMessages } = require("./controller");
+
 const askQuestions = () => {
   return inquirer.prompt(QUESTIONS);
 };

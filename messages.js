@@ -1,5 +1,5 @@
 const nanoid = require("nanoid");
-
+// The initially proposed runtime persistence layer
 class Messages {
   constructor() {
     this.messages = {};
