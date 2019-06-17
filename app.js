@@ -19,9 +19,9 @@ mongoose
     const answers = await askQuestions();
     evaluateAnswers(answers);
   })
-  .catch(() => {
+  .catch(error => {
     //eslint-disable-next-line
-    console.log("Cannot connect to db");
+    console.log("Cannot connect to db", error);
     process.exit(1);
   });
 app.get("/messages", getMessages);
