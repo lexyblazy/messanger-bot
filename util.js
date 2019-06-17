@@ -1,4 +1,5 @@
-const { FIRSTNAME, BIRTHDAY, DAYS_TO_NEXT_BIRTHDAY,KNOW_DAYS } = require("./constants");
+const { FIRSTNAME, BIRTHDAY, KNOW_DAYS } = require("./constants");
+const { saveMessage } = require("./controller/");
 
 const getNextBirthday = (day, month) => {
   const today = new Date();
@@ -12,10 +13,11 @@ const getNextBirthday = (day, month) => {
 };
 
 exports.evaluateAnswers = answers => {
-  const knowNextBirthday = answers[DAYS_TO_NEXT_BIRTHDAY];
+  const knowNextBirthday = answers[KNOW_DAYS];
   const dob = new Date(answers[BIRTHDAY]);
   const daysToNextBirthday = getNextBirthday(dob.getDate(), dob.getMonth());
   const singular = daysToNextBirthday <= 1;
+  saveMessage(answers);
   switch (knowNextBirthday) {
     case "yes":
     case "yeah":
@@ -35,7 +37,7 @@ exports.evaluateAnswers = answers => {
     }
     default:
       // eslint-disable-next-line
-      console.log("Goodbye");
+      console.log("Goodbye 👋👋👋👋");
       return;
   }
 };

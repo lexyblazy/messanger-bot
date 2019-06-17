@@ -1,9 +1,11 @@
 const FIRSTNAME = "name";
 const BIRTHDAY = "birthday";
 const KNOW_DAYS = "know_days_left";
+const DBURL = "mongodb://localhost:27017/messages";
 exports.FIRSTNAME = FIRSTNAME;
 exports.BIRTHDAY = BIRTHDAY;
 exports.KNOW_DAYS = KNOW_DAYS;
+exports.DBURL = DBURL;
 
 exports.QUESTIONS = [
   {

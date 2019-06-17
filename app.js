@@ -1,26 +1,30 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
 const inquirer = require("inquirer");
 const PORT = process.env.PORT || 5000;
-const { QUESTIONS } = require("./constants");
+const { QUESTIONS, DBURL } = require("./constants");
 const { evaluateAnswers } = require("./util");
+const { getMessage, getMessages } = require("./controller");
 const askQuestions = () => {
   return inquirer.prompt(QUESTIONS);
 };
-const Messages = require("./messages");
 
-const messages = new Messages();
+mongoose
+  .connect(DBURL, { useNewUrlParser: true })
+  .then(async () => {
+    //eslint-disable-next-line
+    console.log("Connection to database succesful\n");
+    const answers = await askQuestions();
+    evaluateAnswers(answers);
+  })
+  .catch(() => {
+    //eslint-disable-next-line
+    console.log("Cannot connect to db");
+    process.exit(1);
+  });
+app.get("/messages", getMessages);
 
-app.get("/messages", (req, res) => {
-  res.send(messages.getMessages());
-});
+app.get("/messages/:id", getMessage);
 
-app.get("/messages/:id", (req, res) => {
-  res.send(messages.getMessage(req.params.id));
-});
-
-app.listen(PORT, async () => {
-  const answers = await askQuestions();
-  evaluateAnswers(answers);
-  messages.saveMessage(answers);
-});
+app.listen(PORT);
