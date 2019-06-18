@@ -1,4 +1,4 @@
-## Simple Messanger Bot in Nodejs
+## Simple Messenger Bot in Nodejs
 
 This project uses mongodb to persist the all the messsages.
 To run this project, you must have mongodb running locally, then add your local mongodb url<br>
