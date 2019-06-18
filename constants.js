@@ -27,7 +27,7 @@ exports.QUESTIONS = [
     message: "Do you want to know how many days till your next birthday",
     filter: function(val = "") {
       const regex = /[^A-Za-z]/g;
-      const cleaned = val.replace(regex, "");
+      const cleaned = val.replace(regex, "").toLowerCase();
       return cleaned;
     }
   }
