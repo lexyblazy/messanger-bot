@@ -17,4 +17,4 @@ Use the following routes to retrieve messages
   localhost:5000/messages - retrieves all the messages in the database.
   localhost:5000/messages/:id - retrieves a single message which corresponds to the `id` parameter
 ```
-
+![](ezgif.com-video-to-gif.gif)
